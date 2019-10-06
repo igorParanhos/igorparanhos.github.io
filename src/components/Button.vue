@@ -2,6 +2,7 @@
   <button
     :class="`button
       ${fullwidth ? 'fullwidth' : ''}
+      ${rounded ? 'rounded' : ''}
       ${info ? 'info' : ''}
       ${danger ? 'danger' : ''}
       ${primary ? 'primary' : ''}
@@ -24,6 +25,7 @@ export default class extends Vue {
   @Prop() private danger!: boolean;
   @Prop() private warning!: boolean;
   @Prop() private success!: boolean;
+  @Prop() private rounded!: boolean;
 }
 
 </script>
@@ -69,6 +71,9 @@ export default class extends Vue {
   &.success {
     background: #f03930;
     color: #fff;
+  }
+  &.rounded {
+    border-radius: 48px;
   }
 
   &:hover {
