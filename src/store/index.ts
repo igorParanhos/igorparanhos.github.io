@@ -29,7 +29,7 @@ export default new Vuex.Store({
     },
     hideNotification(state) {
       state.notification.show = false;
-    }
+    },
   },
   actions: {
     async createTodo({ state, commit }, todoItem) {
