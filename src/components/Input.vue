@@ -1,5 +1,11 @@
 <template>
-  <input class="base-input" type="text" @change="$emit('change', $event.target.value)" :value="value" :name="name" />
+  <input
+    type="text"
+    :class="`base-input
+      ${fullwidth ? 'fullwidth' : ''}`"
+    :value="value" :name="name"
+    @change="$emit('change', $event.target.value)"
+    />
 </template>
 
 <script lang="ts">
@@ -12,14 +18,26 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
   },
 })
 export default class Input extends Vue {
-    @Prop() private value!: number;
-    @Prop() private name!: string;
+  @Prop() private value!: number;
+  @Prop() private name!: string;
+
+  @Prop() private fullwidth!: string;
 }
 </script>
 
-<style>
+<style lang="scss">
 .base-input {
-    min-height: 35px;
-    padding: 10px 0 10px 0;
+  height: 48px;
+
+  font-size: 16px;
+
+  padding: 0 18px 0 18px;
+
+  border-radius: 48px;
+  border: 1px solid #cdcdcd;
+
+  &.fullwidth {
+    width: 100%;
+  }
 }
 </style>
